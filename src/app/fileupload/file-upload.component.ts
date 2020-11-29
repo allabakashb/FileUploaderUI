@@ -59,7 +59,20 @@ export class FileUploadComponent {
       });
   }
 
-  downloadTemplate(name: string, label: string): void {
-    window.open(this.util.getApiURL(API.template) + `?name=${name}`, '_blank');
+  downloadTemplate(name: string): void {
+    const request = {
+      params: { name,  fileType: 'template' },
+      url: this.util.getApiURL(API.check),
+    };
+    this.server.submitRequest(request).subscribe(payload => {
+        if (payload && payload.found) {
+          window.open(this.util.getApiURL(API.template) + `?name=${name}`, '_blank');
+        } else {
+          this.util.alert(MESSAGES.fileNotFound);
+        }
+      },
+      error => {
+        this.util.alert(MESSAGES.template);
+      });
   }
 }

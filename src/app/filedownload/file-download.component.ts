@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {API, FILE_TYPES} from '../util/app.constant';
+import {API, FILE_TYPES, MESSAGES} from '../util/app.constant';
 import {Server} from '../util/server';
 import {AppUtil} from '../util/app.util';
 
@@ -14,8 +14,21 @@ export class FileDownloadComponent {
   constructor(private server: Server, private util: AppUtil) {
   }
 
-  downloadTemplate(type: string): void {
-    window.open(this.util.getApiURL(API.get) + `?type=${type}`, '_blank');
+  downloadTemplate(name: string): void {
+    const request = {
+      params: { name,  fileType: 'existing' },
+      url: this.util.getApiURL(API.check),
+    };
+    this.server.submitRequest(request).subscribe(payload => {
+          if (payload && payload.found) {
+            window.open(this.util.getApiURL(API.get) + `?type=${name}`, '_blank');
+          } else {
+            this.util.alert(MESSAGES.fileNotFound);
+          }
+        },
+        error => {
+          this.util.alert(MESSAGES.template);
+        });
   }
 
 }

@@ -7,7 +7,7 @@
       <mat-radio-group fxLayout="column" [(ngModel)]="file.type">
         <div *ngFor="let file of fileTypes">
           <mat-radio-button [value]="file.name">{{file.uploadLabel}}</mat-radio-button>
-          <span class="template" (click)="downloadTemplate(file.name, file.uploadLabel)"><mat-icon class="download-icon">publish</mat-icon> Template</span>
+          <span class="template" (click)="downloadTemplate(file.name)"><mat-icon class="download-icon">publish</mat-icon> Template</span>
         </div>
       </mat-radio-group>
     </div>

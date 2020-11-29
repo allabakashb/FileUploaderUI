@@ -7,7 +7,8 @@ export const FILE_TYPES = [
 export const API = {
   get: '/data/get',
   template: '/data/template',
-  save: '/data/save'
+  save: '/data/save',
+  check: '/data/checkFile'
 };
 
 export const API_HOST = 'http://localhost:8000';
@@ -16,5 +17,6 @@ export const MESSAGES = {
   fileType: 'Choose a File Type',
   save: 'Error while saving file',
   success: 'File uploaded successfully..!',
-  template: 'Error while fetching template'
+  template: 'Error while fetching template',
+  fileNotFound: 'Requested File not found'
 };
