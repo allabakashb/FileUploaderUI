@@ -1,0 +1,24 @@
+<div class="file-upload" fxLayout="row wrap">
+  <mat-toolbar color="header" fxFlex="100" class="toolbar-height">
+    <span>Files Upload</span>
+  </mat-toolbar>
+  <mat-card fxFlex="100" fxLayout="row" fxLayout.xs="column">
+    <div fxLayout="column" fxFlex="40" fxFlex.xs="100" class="file-types">
+      <mat-radio-group fxLayout="column" [(ngModel)]="file.type">
+        <div *ngFor="let file of fileTypes">
+          <mat-radio-button [value]="file.name">{{file.uploadLabel}}</mat-radio-button>
+          <span class="template" (click)="downloadTemplate(file.name, file.uploadLabel)"><mat-icon class="download-icon">publish</mat-icon> Template</span>
+        </div>
+      </mat-radio-group>
+    </div>
+    <div fxLayout="row" fxFlex="60" fxFlex.xs="100">
+      <div fxLayout="column" fxLayoutAlign="center" class="dropzone" fxLayoutGap="5px" appDragAndDrop (fileDropped)="upload($event)">
+          <div><mat-icon class="upload-icon">cloud_upload</mat-icon></div>
+          <div class="drag">Drag & Drop or <span class="browse" [class]="file.type ? 'active' : 'in-active'" (click)="browse(fileUploader)">Browse</span></div>
+          <input type="file" (change)="upload(fileUploader.files)" #fileUploader hidden>
+        <div><button mat-button [disabled]="!file.data" [class]="file.data ? 'submit': 'disabled'" (click)="submit()">SUBMIT</button></div>
+        <div fxLayout="row" *ngIf="file.name" fxLayoutAlign="center"><span>{{file.name}}</span> <mat-icon class="cancel-icon" (click)="cancel()">cancel</mat-icon></div>
+      </div>
+    </div>
+  </mat-card>
+</div>

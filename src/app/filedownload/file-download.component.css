@@ -1,0 +1,10 @@
+.download-data .download-icon {
+  margin-right: 5px;
+}
+
+.download-data button {
+  color: #2e70c8;
+  border-radius: 20px;
+  border: 1px solid lightgray;
+  margin: 5px;
+}

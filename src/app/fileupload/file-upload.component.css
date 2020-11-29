@@ -1,0 +1,74 @@
+.file-types mat-radio-button {
+  padding: 10px;
+}
+
+.dropzone {
+  width: 450px;
+  height: 250px;
+  padding: 2rem;
+  text-align: center;
+  border: dashed 1px #2e70c8;
+}
+
+.dropzone input {
+  opacity: 0;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.template {
+  padding-bottom: 7px;
+  color: #2e70c8;
+  cursor: pointer;
+}
+
+.template .download-icon {
+  padding-bottom: 5px;
+}
+
+.dropzone .upload-icon {
+  font-size: 40px;
+  color: #838d96;
+}
+
+.mat-button {
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-top: 5px;
+  color: #ffffff;
+  border: 1px solid #838d96;
+}
+
+.submit {
+  background-color: #2e70c8;
+}
+
+.mat-disabled {
+  background-color: #838d96;
+}
+
+.browse {
+  cursor: pointer;
+}
+
+.active {
+  color: #2e70c8;
+}
+
+.in-active {
+  color: #838d96;
+}
+
+.drag {
+  font-weight: bold;
+}
+
+.cancel-icon {
+  color: red;
+  padding-left: 5px;
+  cursor: pointer;
+}

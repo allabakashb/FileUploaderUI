@@ -1,0 +1,8 @@
+<div class="file-download" fxLayout="row wrap">
+  <mat-toolbar color="header" fxFlex="100" class="toolbar-height">
+    <span>Files Download</span>
+  </mat-toolbar>
+  <mat-card fxFlex="100" fxLayout="row" fxLayout.xs="column" class="download-data">
+    <button mat-button *ngFor="let file of fileTypes" (click)="downloadTemplate(file.name)"><mat-icon class="download-icon">publish</mat-icon>{{file.downloadLabel | uppercase }}</button>
+  </mat-card>
+</div>
